@@ -1,3 +1,5 @@
+package main.java;
+
 class Scribe implements Runnable {
 
 	private Warehouse warehouse;

@@ -1,0 +1,23 @@
+<project>
+
+	<target name="clean">
+		<delete dir="classes"/>
+		<delete dir="jars"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="classes"/>
+		<mkdir dir="jars"/>
+		<javac srcdir="src" destdir="classes"/>
+		<jar destfile="jars/Warehouse.jar" basedir="classes">
+			<manifest>
+				<attribute name="Main-Class" value="main.java.Driver"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run">
+		<java jar="jars/Warehouse.jar" fork="true"/>
+	</target>
+
+</project>

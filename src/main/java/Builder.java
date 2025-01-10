@@ -1,3 +1,5 @@
+package main.java;
+
 class Builder implements Runnable {
 
 	private final Warehouse warehouse;

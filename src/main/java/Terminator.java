@@ -1,3 +1,5 @@
+package main.java;
+
 class Terminator implements Runnable {
 
 	private final Warehouse warehouse;
