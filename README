@@ -1,0 +1,18 @@
+Concept
+
+Warehouse Workers is a project that simulates a virtual work environment within a warehouse with two different production tracks: one for boxes, and one for bundles. 
+Each track is outfitted with a single Builder worker (which systematically assembles either boxes or bundles) and a single Terminator worker (which systematically assembles either boxes or bundles).
+The entire warehouse is overseen by a Scribe worker, which records all changes in the warehouse, and updates its findings as fast as possible.
+This project serves as a proof-of-ability for the creator, Peter, in relation to the following Java Programming Skills:
+
+Multithreading & Concurrency (each worker is its own individual thread)
+Encapsulation (each class is aware only of the bare minimum to run)
+
+Instructions
+
+Warehouse Workers requires the Apache Ant build tool to be used effectively. Once acquired, the following commands become available.
+
+'ant compile' <---- Compiles all code and prepares the program for execution.
+'ant run' <---- Executes the program.
+
+At any time during program execution, the capital letter 'K' may be input in order to immediately terminate all threads. This is a part of the core program, and not an Ant task.

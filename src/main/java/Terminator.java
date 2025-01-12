@@ -1,3 +1,5 @@
+package main.java;
+
 class Terminator implements Runnable {
 
 	private final Warehouse warehouse;
@@ -12,6 +14,14 @@ class Terminator implements Runnable {
 		lastSizeBox = 0;
 		lastSizeBundle = 0;
 	
+	} 
+
+	private boolean checkDelCom() {
+
+		if (warehouse.getComStatus())
+			return true;
+		return false;
+
 	}
 	
 	private boolean boxScanner() {
@@ -40,8 +50,9 @@ class Terminator implements Runnable {
 		
 		case BOXES:
 			while (true) {
-		
-				if (boxScanner()) {
+				
+
+				if (boxScanner() || checkDelCom()) {
 					warehouse.getList("Box").remove(warehouse.getSize("Box") - 1);
 					//System.out.println("GYATT!!");
 				}
@@ -55,7 +66,7 @@ class Terminator implements Runnable {
 		case BUNDLES:
 			while (true) {
 		
-				if (bundleScanner()) {
+				if (bundleScanner() || checkDelCom()) {
 					warehouse.getList("Bundle").remove(warehouse.getSize("Bundle") - 1);
 					lastSizeBundle = warehouse.getSize("Bundle");
 				}

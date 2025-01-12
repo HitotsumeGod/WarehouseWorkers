@@ -1,16 +1,34 @@
+package main.java;
+
+import java.util.Scanner;
+
 public class Driver {
 
 	public static void main(String[] args) {
-	
+		
+		Scanner scan = new Scanner(System.in);
+		Warehouse warehouse = Warehouse.getInstance();
 		Track boxes = new Track(Exports.BOXES);
 		Track bundles = new Track(Exports.BUNDLES);
 		if (!(boxes.getTrackStatus()) || !(bundles.getTrackStatus()))
 			System.exit(0);
-		new Thread(new Scribe()).start();
-		new Thread(boxes.getTrackBuilder()).start();
-		new Thread(boxes.getTrackTerminator()).start();
-		new Thread(bundles.getTrackBuilder()).start();
-		new Thread(bundles.getTrackTerminator()).start();
+		Thread TS = new Thread(new Scribe());
+		Thread t1B = new Thread(boxes.getTrackBuilder());
+		Thread t1T = new Thread(boxes.getTrackTerminator());
+		Thread t2B = new Thread(bundles.getTrackBuilder());
+		Thread t2T = new Thread(bundles.getTrackTerminator());
+		Thread[] tArr = new Thread[] {TS, t1B, t1T, t2B, t2T};
+		for (Thread t1 : tArr)
+			t1.start();
+		while (true) {
+			
+			if (scan.nextLine().charAt(0) == 'K') {
+				System.exit(0);
+			} else if (scan.nextLine().charAt(0) == 'D') {
+				warehouse.setDelCom(true);
+			}
+		
+		}
 	
 	}
 

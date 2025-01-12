@@ -1,8 +1,11 @@
+package main.java;
+
 import java.util.ArrayList;
 
 class Warehouse {
 
 	private boolean security;
+	private boolean delCommand;
 	private ArrayList<Box> boxArr;
 	private ArrayList<Bundle> bundleArr;
 	private static final Warehouse instance = new Warehouse();
@@ -72,6 +75,18 @@ class Warehouse {
 	
 		return security;
 	
+	}
+
+	public void setDelCom(boolean delCom) {
+
+		this.delCommand = delCom;
+
+	}
+
+	public boolean getComStatus() {
+
+		return delCommand;
+
 	}
 	
 	public static Warehouse getInstance() {
