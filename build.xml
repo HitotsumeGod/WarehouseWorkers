@@ -1,4 +1,4 @@
-<project>
+<project default="clean">
 
 	<target name="clean">
 		<delete dir="classes"/>
